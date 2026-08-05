@@ -45,7 +45,6 @@ A bonus feature of the custom program is that it interprets Jurism language feat
 ### Summary of features (of the program and the procedure)
 1.	Because Zotero import changes the 'Date added' to the date of the import, the extractor preserves the ‘Original date added' in the Extra field as “original-date-added:”
 2.	Storage items from Jurism/storage are transferred into Zotero/storage correctly linked to new subfolders (Zotero import creates new item id,s so the old ones do mnot work 
-4.	Linked attachments present and correctly linked with a relative address to the same folder as Jurism used. This can then be changed later with a single Zotero setting. 
 5.	Jurism language settings preserved as CNE tags placed in the “Extra” field.  Note 1: I only use European languages and the Latin alphabet, so settings for romanisation of other alphabets (such as Chinese) are not needed.  Note 2: this spec does not include the extraction of judicial fields. I do not have any so have no means to test them. 
 6.	All original item types preserved in the same or an equivalent type (no default to ‘document’, though there are a few legitimate items of type ‘document’). 
 7.	The new library can be correctly synched with Zotero.org, without creating duplicate entries (need to purge first). 
@@ -66,12 +65,46 @@ My product:
 3. Only includes provision for Latin alphabets. I have no way of testing the "Romanised" fields. 
 4.	Does not include provision for judicial data. I do not use these, so have no means of testing them.
 
-See the separate file for operating instructions.  
+# Operating instructions
+Written for Mac OS; would need to be adapted for Windows. 
+Of course, backup your /Jurism folder and Linked attachments first, if you have not already done so. 
 
+#### 1 Jurism checks 
+1. Open Jurism ... 
+1. Turn off synchronisation if you have it on.
+1. Make sure your attachments root folder is set correctly. You can call it anything you like, e.g. 'Zotero linked attachments' or 'Jurism linked attachments'. The migration will not change the name, but it needs to link to the actual files before you extract, and you must use the same name in Zotero before import, otherwise the linked attachments will become unlinked. You can freely change the name later, once you have restored relative addressing.
+1. On the main library page, click 'My Library' and select all items; make a note of how many there are
+1. You might also like to pick a few examples as representative for later acceptances test: e.g. some of various types; some with multiple languages.    
+1. Close Jurism (it locks the database when open).
 
+#### 2 Preparation 
+1. Install python 3 if you do not have it already (look elsewhere for details on how to do this).
+1. Download the file jurism_to_zotero_extractor.py file from this repository to your /Jurism folder (the one that contains jurism.sqlite and /storage).
+1. Create a new empty folder called /Zotero. If you already have one, delete all its contents.
+1. Download and install the latest version of Zotero from the official Zotero website, if you do not already have it.  
 
+#### 3 Extraction 
+1. Open Terminal
+1. Use cd commands to make /Jurism the current directory -- cd ~Jurism will usually work; if not cd /users/<your_user_name>/Jurism is the default location; if you put it somewhere else use that parth.    
+1. Run the extractor with the command python3 jurism_to_zotero_extractor.py
+1. After a few seconds (depending on the size of your library) the extractor will report success and write the files _jurism_zotero_import.rcd_ and  jurism_extract_report.txt 
+    
+#### 4 Import 
+1. Open Zotero - it will create an empty database, an empty /storage folder and other files - this is your 'clean' environment
+1. Ensure that synchronisation is turned off (in case you previously turned it on). Preferably log off.
+1. Set the attachment root folder to wherever you currently keep linked attachments, e.g. XXX/Jurism linked attachments. They will not be moved, but you can rename this folder later.
+1. Import the RCD file
 
+#### 5 Check the import 
+1.	All items imported (same number of items as you had in Jurism), none dropped and none duplicated 
+1.	‘Original date added' preserved in the Extra field as “original-date-added:”
+3.	Storage items are present and correctly linked (to new subfolders in the Zotero/storage folder)
+4.	Linked attachments present and correctly linked with a relative address to the same folder as Jurism used. This can then be changed later with a single Zotero setting. 
+5.	Jurism language settings preserved as CNE tags placed in the “Extra” field. 
+6.	All original item types preserved in the same or an equivalent type (no default to ‘document’, though there are a few legitimate items of type ‘document’). 
 
-
-
-
+#### 6 Finalise 
+1. Check that linked attachments are addressed relatively (if they were before). If not ... (t.b.d.)  
+1. Purge the zotero.org database (method t.b.d.)
+1. Turn on synchronisation
+1. You can now add Zotero to other computers if you wish. 
