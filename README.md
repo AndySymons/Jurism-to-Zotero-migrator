@@ -1,4 +1,4 @@
-# Jurism-to-Zotero-migrator
+# Jurism-to-Zotero Migration 
 A python program to extract data and attachments from a Jurism 6 environment and import them into a Zotero 9 environment
 
 ### Why migrate? 
