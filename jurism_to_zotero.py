@@ -2,18 +2,15 @@
 """
 jurism_to_zotero.py
 
-Commit: #4
-Added features:
- - Export a specific collection by name with --collection-name "NAME" (looks up collection and its members in the DB).
- - Default behavior unchanged: emit file:/// absolute URIs for linked/storage files (no copying).
- - Keeps --verbose-attachments, --package-files planned but not implemented here.
+Commit: #5
+Fixes:
+ - Emit attachments as top-level z:Attachment items and add link:link references from parent items so Zotero imports attachments correctly.
+ - Add original-date-added CNE line into <z:extra> (label: "original-date-added:") so Zotero import preserves the original added date.
+ - Filter creator-like lines from existing Extra before exporting into z:extra.
+ - Use dc:dcterms/link namespaces for attachment identifiers and parent links.
 
-This patch adds robust lookup for collection and collection->item mapping tables in the sqlite DB used by Jurism (which is Zotero-like).
-If no collection tables are present, an error is shown and the export falls back to previous behavior.
-
-Usage examples:
-  python3 jurism_to_zotero.py --db jurism.sqlite --collection-name "#Export test" --out zotero_export_collection.rdf --json-out /dev/null --verbose-attachments
-  python3 jurism_to_zotero.py --db jurism.sqlite --out zotero_import.rdf --limit 20
+Usage:
+  python3 jurism_to_zotero.py --db jurism.sqlite --collection-name "#Export test" --out zotero_import.rdf --json-out items_test.json --verbose-attachments
 
 """
 
@@ -34,7 +31,6 @@ DEFAULT_LINKED_BASE = "/Volumes/X-Drive/Zotero linked attachments"
 DEFAULT_DATA_DIR = os.path.expanduser("~/Jurism")
 PREFS_GLOB = os.path.expanduser("~/Library/Application Support/Jurism/Profiles/*/prefs.js")
 
-# common language normalisation map (extend as needed)
 LANG_MAP = {
     'english': 'en', 'en': 'en', 'eng': 'en',
     'german': 'de', 'de': 'de', 'ger': 'de', 'deutsch': 'de',
@@ -190,7 +186,7 @@ def prettify_xml(elem):
         return rough.decode('utf-8')
 
 
-# --- New collection lookup helpers ---
+# Collection helpers (as in previous commit)
 
 def find_collection_tables(conn):
     cur = conn.cursor()
@@ -203,12 +199,10 @@ def inspect_table_columns(conn, table):
 
 
 def find_collection_table_and_columns(conn):
-    # Return (collection_table, name_col, id_col) or (None, None, None)
     candidates = find_collection_tables(conn)
     for t in candidates:
         cols = inspect_table_columns(conn, t)
         lower = [c.lower() for c in cols]
-        # find plausible name column
         name_col = None
         for c in ('name', 'collectionName', 'displayName'):
             if c in cols:
@@ -219,7 +213,6 @@ def find_collection_table_and_columns(conn):
                 if 'name' in c.lower():
                     name_col = c
                     break
-        # find plausible id column
         id_col = None
         for c in ('collectionID', 'id', 'collection_id'):
             if c in cols:
@@ -239,14 +232,12 @@ def find_collection_item_mapping_table(conn):
     cur = conn.cursor()
     cur.execute("SELECT name FROM sqlite_master WHERE type='table' AND lower(name) LIKE '%collection%';")
     tables = [r[0] for r in cur.fetchall()]
-    # find a table that also includes 'item' in the name
     for t in tables:
         if 'item' in t.lower():
             cols = inspect_table_columns(conn, t)
             low = [c.lower() for c in cols]
             if any('item' in c.lower() for c in cols) and any('collection' in c.lower() for c in cols):
                 return t
-    # fallback: search all tables for a mapping pattern
     cur.execute("SELECT name FROM sqlite_master WHERE type='table';")
     all_tables = [r[0] for r in cur.fetchall()]
     for t in all_tables:
@@ -260,13 +251,11 @@ def get_itemIDs_for_collection(conn, collection_name):
     ctable, name_col, id_col = find_collection_table_and_columns(conn)
     if not ctable:
         raise RuntimeError('No collection table found in DB')
-    # find matching collection rows (case-insensitive match)
     cur = conn.cursor()
     q = f"SELECT {id_col} FROM {ctable} WHERE lower({name_col}) = lower(?)"
     cur.execute(q, (collection_name,))
     rows = cur.fetchall()
     if not rows:
-        # try LIKE
         q2 = f"SELECT {id_col} FROM {ctable} WHERE lower({name_col}) LIKE lower(?)"
         cur.execute(q2, (f"%{collection_name}%",))
         rows = cur.fetchall()
@@ -276,10 +265,8 @@ def get_itemIDs_for_collection(conn, collection_name):
     mapping_table = find_collection_item_mapping_table(conn)
     if not mapping_table:
         raise RuntimeError('No collection->item mapping table found in DB')
-    # determine column names in mapping table
     cols = inspect_table_columns(conn, mapping_table)
     col_lower = [c.lower() for c in cols]
-    # possible names for item and collection columns
     item_col = None
     coll_col = None
     for c in cols:
@@ -288,7 +275,6 @@ def get_itemIDs_for_collection(conn, collection_name):
             item_col = c
         if 'collection' in lc and 'id' in lc:
             coll_col = c
-    # fallback heuristics
     if not item_col:
         for c in cols:
             if 'item' in c.lower():
@@ -300,7 +286,6 @@ def get_itemIDs_for_collection(conn, collection_name):
                 coll_col = c
                 break
     if not item_col or not coll_col:
-        # try common names
         for c in ('itemID','item_id','itemid'):
             if c in col_lower:
                 item_col = cols[col_lower.index(c)]
@@ -309,15 +294,12 @@ def get_itemIDs_for_collection(conn, collection_name):
                 coll_col = cols[col_lower.index(c)]
     if not item_col or not coll_col:
         raise RuntimeError(f'Could not identify item/collection columns in {mapping_table} (columns: {cols})')
-    # gather itemIDs for all matching collection_ids
     item_ids = []
     for cid in collection_ids:
         q3 = f"SELECT {item_col} FROM {mapping_table} WHERE {coll_col} = ?"
         for r in sqlite_rows(conn, q3, (cid,)):
-            # r is dict
             val = list(r.values())[0]
             item_ids.append(val)
-    # deduplicate and preserve order
     seen = set()
     ordered = []
     for x in item_ids:
@@ -327,11 +309,8 @@ def get_itemIDs_for_collection(conn, collection_name):
     return ordered
 
 
-# --- End collection helpers ---
-
-
 def main():
-    p = argparse.ArgumentParser(description='Jurism -> Zotero exporter (collection-aware)')
+    p = argparse.ArgumentParser(description='Jurism -> Zotero exporter (collection-aware, attachments as top-level items)')
     p.add_argument('--db', default='jurism.sqlite', help='Path to jurism.sqlite')
     p.add_argument('--out', default='zotero_import.rdf', help='Output RDF filename')
     p.add_argument('--json-out', default='items.json', help='Output JSON metadata file (use /dev/null to skip)')
@@ -370,14 +349,10 @@ def main():
     conn = sqlite3.connect(args.db)
     conn.row_factory = sqlite3.Row
 
-    # map itemTypes
     item_types = {r['itemTypeID']: r['typeName'] for r in sqlite_rows(conn, "SELECT itemTypeID, typeName FROM itemTypes")}
-
-    # determine which itemTypeIDs are attachments/notes
     attachment_type_ids = [k for k, v in item_types.items() if v == 'attachment']
     note_type_ids = [k for k, v in item_types.items() if v == 'note']
 
-    # build item list either from collection or from general items query
     items = []
     if args.collection_name:
         try:
@@ -385,11 +360,9 @@ def main():
             if not ids:
                 log(f'Collection "{args.collection_name}" found but contains no items')
             else:
-                # fetch item rows by itemID preserving order
                 for iid in ids:
                     row = list(sqlite_rows(conn, 'SELECT itemID, itemTypeID, key FROM items WHERE itemID = ?', (iid,)))
                     if row:
-                        # filter out attachment/note items
                         if row[0]['itemTypeID'] in (attachment_type_ids + note_type_ids):
                             continue
                         items.append(row[0])
@@ -410,17 +383,14 @@ def main():
 
     log(f'Items to export: {len(items)}')
 
-    # creators
     creators = {r['creatorID']: {'firstName': r['firstName'], 'lastName': r['lastName'], 'fieldMode': r['fieldMode']} for r in sqlite_rows(conn, 'SELECT creatorID, firstName, lastName, fieldMode FROM creators')}
 
     item_creators = {}
     for r in sqlite_rows(conn, 'SELECT itemID, creatorID, creatorTypeID, orderIndex FROM itemCreators ORDER BY itemID, orderIndex'):
         item_creators.setdefault(r['itemID'], []).append(r)
 
-    # attachments table
     attachments_rows = [r for r in sqlite_rows(conn, 'SELECT itemID, parentItemID, linkMode, contentType, path, storageModTime, storageHash FROM itemAttachments')]
 
-    # build attachments_by_parent map from DB (we will resolve to file:// URIs but not copy)
     attachments_by_parent = {}
     missing_snapshots = []
 
@@ -429,33 +399,28 @@ def main():
         attachments_by_parent.setdefault(parent, []).append(a)
 
     exported = []
+    attachments_master = []
 
-    # utility: get item dateAdded if present
     def get_date_added(item_id):
         row = list(sqlite_rows(conn, 'SELECT dateAdded FROM items WHERE itemID = ?', (item_id,)))
         if row and row[0].get('dateAdded'):
             return row[0]['dateAdded']
         return None
 
-    # find notes table if present
     notes_table = find_notes_table(conn)
     if notes_table:
         log(f'Notes table detected: {notes_table}')
 
-    # process each item
     for it in items:
         iid = it['itemID']
-        # load item fields
         rows = list(sqlite_rows(conn, 'SELECT d.fieldID, f.fieldName, v.value FROM itemData d JOIN itemDataValues v ON d.valueID = v.valueID JOIN fieldsCombined f ON d.fieldID = f.fieldID WHERE d.itemID = ?', (iid,)))
         fields = {r['fieldName']: r['value'] for r in rows}
 
-        # alternates (for CNE)
         alt_rows = list(sqlite_rows(conn, 'SELECT d.fieldID, f.fieldName, d.languageTag, v.value FROM itemDataAlt d JOIN itemDataValues v ON d.valueID = v.valueID JOIN fields f ON d.fieldID = f.fieldID WHERE d.itemID = ?', (iid,)))
         alts = {}
         for r in alt_rows:
             alts.setdefault(r['fieldName'], []).append({'lang': r['languageTag'], 'value': r['value']})
 
-        # creators
         clist = []
         for c in item_creators.get(iid, []):
             cid = c['creatorID']
@@ -463,7 +428,6 @@ def main():
             if cr:
                 clist.append(cr)
 
-        # attachments: resolve paths to absolute file URIs but do NOT copy files
         atts = []
         for a in attachments_by_parent.get(iid, []):
             path = a['path']
@@ -471,7 +435,6 @@ def main():
             kind = None
             if path:
                 if path.startswith('storage:'):
-                    # resolve using storage index
                     resolved = resolve_storage_with_index(storage_index, path)
                     if resolved:
                         resolved_abs = resolved
@@ -483,7 +446,6 @@ def main():
                     resolved_abs = os.path.join(linked_base, tail)
                     kind = 'linked'
                 elif path.startswith('/'):
-                    # absolute path in DB; attempt to rebase to linked_base if requested
                     if args.rebase_old:
                         rebased = None
                         if path.startswith(args.rebase_old):
@@ -501,12 +463,9 @@ def main():
                         resolved_abs = path
                         kind = 'absolute'
                 else:
-                    # assume linked-base relative
                     resolved_abs = os.path.join(linked_base, path)
                     kind = 'assumed_linked'
             else:
-                # path is NULL in DB (likely a snapshot stored in storage)
-                # attempt to find a reasonable match in storage_index
                 possible = None
                 parent_key_row = list(sqlite_rows(conn, 'SELECT key FROM items WHERE itemID = ?', (iid,)))
                 parent_key = parent_key_row[0]['key'] if parent_key_row else None
@@ -535,15 +494,26 @@ def main():
                     resolved_abs = os.path.abspath(resolved_abs)
                 file_uri = 'file://' + resolved_abs
 
-            atts.append({'attachItemID': a['itemID'], 'path': path, 'resolved': resolved_abs, 'file_uri': file_uri, 'kind': kind, 'contentType': a['contentType']})
+            attinfo = {'attachItemID': a['itemID'], 'parent': iid, 'path': path, 'resolved': resolved_abs, 'file_uri': file_uri, 'kind': kind, 'contentType': a['contentType']}
+            atts.append(attinfo)
+            attachments_master.append(attinfo)
 
             if args.verbose_attachments:
                 log(f"ATTACH parent={iid} attach={a['itemID']} db_path={path!s} kind={kind} resolved={resolved_abs!s}")
 
-        # build cne extra lines
         extra_lines = []
-        if fields.get('extra'):
-            extra_lines.append(fields.get('extra'))
+        # include original date added as CNE line
+        date_added = get_date_added(iid)
+        if date_added:
+            extra_lines.append(f"original-date-added: {date_added}")
+        # include existing extra, but filter out creator-like lines
+        raw_extra = fields.get('extra')
+        if raw_extra:
+            for line in str(raw_extra).splitlines():
+                if re.search(r'creator', line, re.I):
+                    continue
+                extra_lines.append(line)
+        # include English alternates as cne lines
         for field in ('title', 'bookTitle', 'publicationTitle'):
             if field in alts:
                 for alt in alts[field]:
@@ -562,7 +532,7 @@ def main():
             'creators': clist,
             'attachments': atts,
             'extra_combined': '\n'.join(extra_lines),
-            'dateAdded': get_date_added(iid),
+            'dateAdded': date_added,
         })
 
     if args.json_out and args.json_out != '/dev/null':
@@ -573,14 +543,16 @@ def main():
     NS = {
         'rdf': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
         'dc': 'http://purl.org/dc/elements/1.1/',
-        'z': 'http://www.zotero.org/namespaces/export#'
+        'z': 'http://www.zotero.org/namespaces/export#',
+        'dcterms': 'http://purl.org/dc/terms/',
+        'link': 'http://purl.org/rss/1.0/modules/link/'
     }
-    ET.register_namespace('rdf', NS['rdf'])
-    ET.register_namespace('dc', NS['dc'])
-    ET.register_namespace('z', NS['z'])
+    for prefix, uri in NS.items():
+        ET.register_namespace(prefix, uri)
 
     rdf = ET.Element('{%s}RDF' % NS['rdf'])
 
+    # emit parent items first (z:item elements)
     for it in exported:
         item_el = ET.SubElement(rdf, '{%s}item' % NS['z'], {'{%s}about' % NS['rdf']: 'urn:uuid:' + str(uuid.uuid4())})
         itype = ET.SubElement(item_el, '{%s}itemType' % NS['z'])
@@ -609,6 +581,7 @@ def main():
             abs_el = ET.SubElement(item_el, '{%s}abstractNote' % NS['z'])
             abs_el.text = it['fields'].get('abstractNote')
         if it.get('dateAdded'):
+            # keep dateAdded element but also include original-date-added in extra (already added)
             da_el = ET.SubElement(item_el, '{%s}dateAdded' % NS['z'])
             da_el.text = it.get('dateAdded')
         if it['fields'].get('publisher'):
@@ -635,18 +608,53 @@ def main():
             if note_text:
                 note_el = ET.SubElement(item_el, '{%s}note' % NS['z'])
                 note_el.text = note_text
-        if it['attachments']:
-            for a in it['attachments']:
-                uri = a.get('file_uri')
-                if uri:
-                    att_el = ET.SubElement(item_el, '{%s}attachment' % NS['z'], {'{%s}resource' % NS['rdf']: uri})
+        # add link:link references to attachment items so Zotero imports them
+        for a in it['attachments']:
+            attach_id = a.get('attachItemID')
+            if attach_id:
+                ET.SubElement(item_el, '{%s}link' % NS['link'], {'{%s}resource' % NS['rdf']: f"#item_{attach_id}"})
+
+    # emit attachment items as top-level z:Attachment elements
+    for a in attachments_master:
+        attach_id = a.get('attachItemID')
+        att_el = ET.SubElement(rdf, '{%s}Attachment' % NS['z'], {'{%s}about' % NS['rdf']: f"#item_{attach_id}"})
+        itype = ET.SubElement(att_el, '{%s}itemType' % NS['z'])
+        itype.text = 'attachment'
+        # use path basename as title if available
+        title_text = None
+        if a.get('path'):
+            title_text = os.path.basename(a.get('path'))
+        if not title_text and a.get('resolved'):
+            title_text = os.path.basename(a.get('resolved'))
+        if title_text:
+            t = ET.SubElement(att_el, '{%s}title' % NS['dc'])
+            t.text = title_text
+        # identifier -> dcterms:URI -> rdf:value with file:// URI if resolved
+        if a.get('file_uri'):
+            ident = ET.SubElement(att_el, '{%s}identifier' % NS['dc'])
+            uri_el = ET.SubElement(ident, '{%s}URI' % NS['dcterms'])
+            val = ET.SubElement(uri_el, '{%s}value' % NS['rdf'])
+            val.text = a.get('file_uri')
+        else:
+            # fallback: include z:path with storage: or attachments: value to give Zotero a hint
+            if a.get('path'):
+                path_el = ET.SubElement(att_el, '{%s}path' % NS['z'])
+                # if path looks like storage:..., try to convert to files/<id>/<basename> pattern
+                if a.get('path').startswith('storage:'):
+                    # best-effort filename
+                    fn = os.path.basename(a.get('path'))
+                    path_el.set('{%s}resource' % NS['rdf'], f"files/{attach_id}/{fn}")
                 else:
-                    if a.get('kind') and a.get('kind').startswith('snapshot'):
-                        note_el = ET.SubElement(item_el, '{%s}note' % NS['z'])
-                        note_el.text = f"Snapshot missing for parent {it['itemID']} attach {a.get('attachItemID')}"
-                    else:
-                        att_el = ET.SubElement(item_el, '{%s}attachment' % NS['z'])
-                        att_el.text = str(a.get('path') or '')
+                    path_el.set('{%s}resource' % NS['rdf'], a.get('path'))
+        if a.get('contentType'):
+            lt = ET.SubElement(att_el, '{%s}type' % NS['link'])
+            lt.text = a.get('contentType')
+        if a.get('kind'):
+            try:
+                lm = ET.SubElement(att_el, '{%s}linkMode' % NS['z'])
+                lm.text = str(a.get('kind'))
+            except Exception:
+                pass
 
     with open(args.out, 'w', encoding='utf-8') as rf:
         xmlstr = prettify_xml(rdf)
@@ -655,7 +663,7 @@ def main():
 
     stats = {
         'items_exported': len(exported),
-        'attachments_indexed': sum(len(v) for v in storage_index.values()),
+        'attachments_indexed': len(attachments_master),
         'missing_snapshots_count': len(missing_snapshots),
         'missing_snapshots_sample': missing_snapshots[:50]
     }
