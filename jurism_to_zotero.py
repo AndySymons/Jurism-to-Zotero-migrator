@@ -2,25 +2,18 @@
 """
 jurism_to_zotero.py
 
-Commit: #3
-Changes in this version:
- - Do NOT copy linked or stored files. Instead emit file:// absolute URIs pointing
-   at the original locations so Zotero imports/copies them into its own storage.
- - Export notes (DB table with 'note' content) as z:note elements so Zotero imports them.
- - Attempt to find snapshots (HTML) in storage and point Zotero at the storage file.
- - Normalize language tokens to ISO-639-1 where common mappings exist.
- - Emit original dateAdded as z:dateAdded when present.
- - Avoid blank-node creator artifacts; emit creators as proper z:firstName / z:lastName
-   or z:creator text elements.
- - Add verbose per-attachment logging with --verbose-attachments and a --no-json flag.
- - Print Lisbon timestamps for key steps to help you see which run produced files.
+Commit: #4
+Added features:
+ - Export a specific collection by name with --collection-name "NAME" (looks up collection and its members in the DB).
+ - Default behavior unchanged: emit file:/// absolute URIs for linked/storage files (no copying).
+ - Keeps --verbose-attachments, --package-files planned but not implemented here.
 
-Safety: This script only reads the DB and your storage; it does NOT modify your DB
-or any of your library files. It writes an RDF manifest (default: zotero_import.rdf)
-and a stats.txt log.
+This patch adds robust lookup for collection and collection->item mapping tables in the sqlite DB used by Jurism (which is Zotero-like).
+If no collection tables are present, an error is shown and the export falls back to previous behavior.
 
-Usage example:
-  python3 jurism_to_zotero.py --db jurism.sqlite --out zotero_import.rdf --attachments-dir attachments_export --limit 20 --verbose-attachments
+Usage examples:
+  python3 jurism_to_zotero.py --db jurism.sqlite --collection-name "#Export test" --out zotero_export_collection.rdf --json-out /dev/null --verbose-attachments
+  python3 jurism_to_zotero.py --db jurism.sqlite --out zotero_import.rdf --limit 20
 
 """
 
@@ -55,7 +48,6 @@ def now_lisbon():
     try:
         tz = zoneinfo.ZoneInfo('Europe/Lisbon')
     except Exception:
-        # fallback to UTC if zoneinfo unavailable
         tz = zoneinfo.ZoneInfo('UTC')
     return datetime.now(tz).isoformat()
 
@@ -126,15 +118,12 @@ def resolve_storage_with_index(storage_index, path_value):
     else:
         tail = path_value
     basename = os.path.basename(tail).lower()
-    # exact
     if basename in storage_index:
         return storage_index[basename][0]
-    # strip query-like parts
     if '?' in basename:
         key = basename.split('?', 1)[0]
         if key in storage_index:
             return storage_index[key][0]
-    # substring search
     for k, v in storage_index.items():
         if basename in k:
             return v[0]
@@ -142,11 +131,9 @@ def resolve_storage_with_index(storage_index, path_value):
 
 
 def find_notes_table(conn):
-    # Find a table with 'note' in the name
     cur = conn.cursor()
     cur.execute("SELECT name FROM sqlite_master WHERE type='table' AND lower(name) LIKE '%note%';")
     rows = [r[0] for r in cur.fetchall()]
-    # prefer exact names if present
     for cand in ['itemNotes', 'notes', 'itemNotesCombined', 'itemNotesCombinedLatest']:
         if cand in rows:
             return cand
@@ -156,13 +143,9 @@ def find_notes_table(conn):
 def get_note_text(conn, notes_table, parent_item_id):
     if not notes_table:
         return None
-    # find candidate text columns
     cols = [r['name'] for r in sqlite_rows(conn, f"PRAGMA table_info('{notes_table}')")]
-    # possible content columns
     possible = [c for c in cols if c.lower() in ('note', 'content', 'note_text', 'text')]
     if not possible:
-        # pick a text column if available
-        # get types
         col_types = [(r['name'], r.get('type', '').lower()) for r in sqlite_rows(conn, f"PRAGMA table_info('{notes_table}')")]
         for name, ctype in col_types:
             if 'char' in ctype or 'text' in ctype or name.lower().endswith('content'):
@@ -174,7 +157,6 @@ def get_note_text(conn, notes_table, parent_item_id):
     rows = list(sqlite_rows(conn, q, (parent_item_id,)))
     if not rows:
         return None
-    # if multiple rows, concatenate
     texts = [r['note'] for r in rows if r.get('note')]
     return '\n\n'.join(texts) if texts else None
 
@@ -183,13 +165,10 @@ def normalize_language(token):
     if not token:
         return None
     t = str(token).strip().lower()
-    # try direct map
     if t in LANG_MAP:
         return LANG_MAP[t]
-    # handle two-letter uppercase
     if len(t) == 2:
         return t
-    # common fallbacks
     if t.startswith('eng'):
         return 'en'
     if t.startswith('de') or 'germ' in t:
@@ -211,8 +190,148 @@ def prettify_xml(elem):
         return rough.decode('utf-8')
 
 
+# --- New collection lookup helpers ---
+
+def find_collection_tables(conn):
+    cur = conn.cursor()
+    cur.execute("SELECT name FROM sqlite_master WHERE type='table' AND lower(name) LIKE '%collection%';")
+    return [r[0] for r in cur.fetchall()]
+
+
+def inspect_table_columns(conn, table):
+    return [r['name'] for r in sqlite_rows(conn, f"PRAGMA table_info('{table}')")]
+
+
+def find_collection_table_and_columns(conn):
+    # Return (collection_table, name_col, id_col) or (None, None, None)
+    candidates = find_collection_tables(conn)
+    for t in candidates:
+        cols = inspect_table_columns(conn, t)
+        lower = [c.lower() for c in cols]
+        # find plausible name column
+        name_col = None
+        for c in ('name', 'collectionName', 'displayName'):
+            if c in cols:
+                name_col = c
+                break
+        if not name_col:
+            for c in cols:
+                if 'name' in c.lower():
+                    name_col = c
+                    break
+        # find plausible id column
+        id_col = None
+        for c in ('collectionID', 'id', 'collection_id'):
+            if c in cols:
+                id_col = c
+                break
+        if not id_col:
+            for c in cols:
+                if 'id' in c.lower():
+                    id_col = c
+                    break
+        if name_col and id_col:
+            return t, name_col, id_col
+    return None, None, None
+
+
+def find_collection_item_mapping_table(conn):
+    cur = conn.cursor()
+    cur.execute("SELECT name FROM sqlite_master WHERE type='table' AND lower(name) LIKE '%collection%';")
+    tables = [r[0] for r in cur.fetchall()]
+    # find a table that also includes 'item' in the name
+    for t in tables:
+        if 'item' in t.lower():
+            cols = inspect_table_columns(conn, t)
+            low = [c.lower() for c in cols]
+            if any('item' in c.lower() for c in cols) and any('collection' in c.lower() for c in cols):
+                return t
+    # fallback: search all tables for a mapping pattern
+    cur.execute("SELECT name FROM sqlite_master WHERE type='table';")
+    all_tables = [r[0] for r in cur.fetchall()]
+    for t in all_tables:
+        cols = inspect_table_columns(conn, t)
+        if any('item' in c.lower() for c in cols) and any('collection' in c.lower() for c in cols):
+            return t
+    return None
+
+
+def get_itemIDs_for_collection(conn, collection_name):
+    ctable, name_col, id_col = find_collection_table_and_columns(conn)
+    if not ctable:
+        raise RuntimeError('No collection table found in DB')
+    # find matching collection rows (case-insensitive match)
+    cur = conn.cursor()
+    q = f"SELECT {id_col} FROM {ctable} WHERE lower({name_col}) = lower(?)"
+    cur.execute(q, (collection_name,))
+    rows = cur.fetchall()
+    if not rows:
+        # try LIKE
+        q2 = f"SELECT {id_col} FROM {ctable} WHERE lower({name_col}) LIKE lower(?)"
+        cur.execute(q2, (f"%{collection_name}%",))
+        rows = cur.fetchall()
+        if not rows:
+            raise RuntimeError(f'Collection named "{collection_name}" not found in table {ctable}')
+    collection_ids = [r[0] for r in rows]
+    mapping_table = find_collection_item_mapping_table(conn)
+    if not mapping_table:
+        raise RuntimeError('No collection->item mapping table found in DB')
+    # determine column names in mapping table
+    cols = inspect_table_columns(conn, mapping_table)
+    col_lower = [c.lower() for c in cols]
+    # possible names for item and collection columns
+    item_col = None
+    coll_col = None
+    for c in cols:
+        lc = c.lower()
+        if 'item' in lc and 'id' in lc:
+            item_col = c
+        if 'collection' in lc and 'id' in lc:
+            coll_col = c
+    # fallback heuristics
+    if not item_col:
+        for c in cols:
+            if 'item' in c.lower():
+                item_col = c
+                break
+    if not coll_col:
+        for c in cols:
+            if 'collection' in c.lower():
+                coll_col = c
+                break
+    if not item_col or not coll_col:
+        # try common names
+        for c in ('itemID','item_id','itemid'):
+            if c in col_lower:
+                item_col = cols[col_lower.index(c)]
+        for c in ('collectionID','collection_id','collectionid'):
+            if c in col_lower:
+                coll_col = cols[col_lower.index(c)]
+    if not item_col or not coll_col:
+        raise RuntimeError(f'Could not identify item/collection columns in {mapping_table} (columns: {cols})')
+    # gather itemIDs for all matching collection_ids
+    item_ids = []
+    for cid in collection_ids:
+        q3 = f"SELECT {item_col} FROM {mapping_table} WHERE {coll_col} = ?"
+        for r in sqlite_rows(conn, q3, (cid,)):
+            # r is dict
+            val = list(r.values())[0]
+            item_ids.append(val)
+    # deduplicate and preserve order
+    seen = set()
+    ordered = []
+    for x in item_ids:
+        if x not in seen:
+            seen.add(x)
+            ordered.append(x)
+    return ordered
+
+
+# --- End collection helpers ---
+
+
 def main():
-    p = argparse.ArgumentParser(description='Jurism -> Zotero exporter (commit #3)')
+    p = argparse.ArgumentParser(description='Jurism -> Zotero exporter (collection-aware)')
     p.add_argument('--db', default='jurism.sqlite', help='Path to jurism.sqlite')
     p.add_argument('--out', default='zotero_import.rdf', help='Output RDF filename')
     p.add_argument('--json-out', default='items.json', help='Output JSON metadata file (use /dev/null to skip)')
@@ -220,6 +339,7 @@ def main():
     p.add_argument('--linked-base', default=None, help='Linked attachment base directory (overrides prefs.js)')
     p.add_argument('--data-dir', default=None, help='Jurism data directory (overrides prefs.js)')
     p.add_argument('--limit', type=int, default=20, help='Max number of items to export (0 = all)')
+    p.add_argument('--collection-name', default=None, help='Export items in the collection with this name (exact or substring match)')
     p.add_argument('--rebase-old', default=None, help='If specified, rebase absolute paths from this old base to linked-base')
     p.add_argument('--drop-missing', action='store_true', help='Do not include missing snapshot attachments in RDF (default: include as note in stats)')
     p.add_argument('--verbose-attachments', action='store_true', help='Print one-line log per attachment processed')
@@ -257,16 +377,37 @@ def main():
     attachment_type_ids = [k for k, v in item_types.items() if v == 'attachment']
     note_type_ids = [k for k, v in item_types.items() if v == 'note']
 
-    q = "SELECT itemID, itemTypeID, key FROM items WHERE itemTypeID IS NOT NULL"
-    if attachment_type_ids or note_type_ids:
-        exclude_ids = attachment_type_ids + note_type_ids
-        if exclude_ids:
-            q += " AND itemTypeID NOT IN ({})".format(','.join(str(x) for x in exclude_ids))
-    q += " ORDER BY itemID"
-    if args.limit > 0:
-        q += " LIMIT %d" % args.limit
+    # build item list either from collection or from general items query
+    items = []
+    if args.collection_name:
+        try:
+            ids = get_itemIDs_for_collection(conn, args.collection_name)
+            if not ids:
+                log(f'Collection "{args.collection_name}" found but contains no items')
+            else:
+                # fetch item rows by itemID preserving order
+                for iid in ids:
+                    row = list(sqlite_rows(conn, 'SELECT itemID, itemTypeID, key FROM items WHERE itemID = ?', (iid,)))
+                    if row:
+                        # filter out attachment/note items
+                        if row[0]['itemTypeID'] in (attachment_type_ids + note_type_ids):
+                            continue
+                        items.append(row[0])
+        except Exception as e:
+            log(f'Error locating collection: {e}')
+            log('Falling back to default item selection')
 
-    items = [r for r in sqlite_rows(conn, q)]
+    if not args.collection_name or not items:
+        q = "SELECT itemID, itemTypeID, key FROM items WHERE itemTypeID IS NOT NULL"
+        if attachment_type_ids or note_type_ids:
+            exclude_ids = attachment_type_ids + note_type_ids
+            if exclude_ids:
+                q += " AND itemTypeID NOT IN ({})".format(','.join(str(x) for x in exclude_ids))
+        q += " ORDER BY itemID"
+        if args.limit > 0:
+            q += " LIMIT %d" % args.limit
+        items = [r for r in sqlite_rows(conn, q)]
+
     log(f'Items to export: {len(items)}')
 
     # creators
@@ -366,22 +507,17 @@ def main():
             else:
                 # path is NULL in DB (likely a snapshot stored in storage)
                 # attempt to find a reasonable match in storage_index
-                # heuristic: look for files containing the parent item key or title
                 possible = None
-                # get parent key
                 parent_key_row = list(sqlite_rows(conn, 'SELECT key FROM items WHERE itemID = ?', (iid,)))
                 parent_key = parent_key_row[0]['key'] if parent_key_row else None
-                # search for parent_key in storage filenames
                 if parent_key:
                     for fn in storage_index:
                         if parent_key.lower() in fn:
                             possible = storage_index[fn][0]
                             break
-                # fallback: try matching title tokens
                 if not possible and fields.get('title'):
                     title_basename = re.sub(r'[^0-9a-zA-Z]+', ' ', fields.get('title')).strip().lower().split()
                     for fn in storage_index:
-                        # check if several words from title are in filename
                         hits = sum(1 for w in title_basename if w and w in fn)
                         if hits >= 3:
                             possible = storage_index[fn][0]
@@ -393,10 +529,8 @@ def main():
                     kind = 'snapshot_missing'
                     missing_snapshots.append({'parent': iid, 'attachItemID': a['itemID']})
 
-            # build file URI if resolved_abs
             file_uri = None
             if resolved_abs:
-                # ensure absolute path
                 if not os.path.isabs(resolved_abs):
                     resolved_abs = os.path.abspath(resolved_abs)
                 file_uri = 'file://' + resolved_abs
@@ -420,7 +554,6 @@ def main():
                             extra_lines.append(f"cne-container-title-english: {alt['value']}")
                         break
 
-        # assemble exported item
         exported.append({
             'itemID': iid,
             'key': it.get('key'),
@@ -432,13 +565,11 @@ def main():
             'dateAdded': get_date_added(iid),
         })
 
-    # write JSON debug if requested
     if args.json_out and args.json_out != '/dev/null':
         with open(args.json_out, 'w', encoding='utf-8') as jf:
             json.dump(exported, jf, ensure_ascii=False, indent=2)
         log(f'Wrote {args.json_out}')
 
-    # build RDF using z: namespace
     NS = {
         'rdf': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
         'dc': 'http://purl.org/dc/elements/1.1/',
@@ -452,14 +583,11 @@ def main():
 
     for it in exported:
         item_el = ET.SubElement(rdf, '{%s}item' % NS['z'], {'{%s}about' % NS['rdf']: 'urn:uuid:' + str(uuid.uuid4())})
-        # itemType
         itype = ET.SubElement(item_el, '{%s}itemType' % NS['z'])
         itype.text = it.get('type') or 'document'
-        # title
         if it['fields'].get('title'):
             t = ET.SubElement(item_el, '{%s}title' % NS['z'])
             t.text = it['fields'].get('title')
-        # creators
         if it['creators']:
             for c in it['creators']:
                 creator_el = ET.SubElement(item_el, '{%s}creator' % NS['z'])
@@ -472,23 +600,20 @@ def main():
                         gn.text = c.get('firstName')
                 else:
                     creator_el.text = str(c)
-        # language (normalized)
         lang_val = it['fields'].get('language')
         norm_lang = normalize_language(lang_val)
         if norm_lang:
             lang_el = ET.SubElement(item_el, '{%s}language' % NS['z'])
             lang_el.text = norm_lang
-        # abstract
         if it['fields'].get('abstractNote'):
             abs_el = ET.SubElement(item_el, '{%s}abstractNote' % NS['z'])
             abs_el.text = it['fields'].get('abstractNote')
-        # publisher/date/ISBN/pages
-        if it['fields'].get('publisher'):
-            pub_el = ET.SubElement(item_el, '{%s}publisher' % NS['z'])
-            pub_el.text = it['fields'].get('publisher')
         if it.get('dateAdded'):
             da_el = ET.SubElement(item_el, '{%s}dateAdded' % NS['z'])
             da_el.text = it.get('dateAdded')
+        if it['fields'].get('publisher'):
+            pub_el = ET.SubElement(item_el, '{%s}publisher' % NS['z'])
+            pub_el.text = it['fields'].get('publisher')
         if it['fields'].get('date'):
             date_el = ET.SubElement(item_el, '{%s}date' % NS['z'])
             date_el.text = it['fields'].get('date')
@@ -498,31 +623,24 @@ def main():
         if it['fields'].get('pages'):
             pages_el = ET.SubElement(item_el, '{%s}pages' % NS['z'])
             pages_el.text = it['fields'].get('pages')
-        # container
         container = it['fields'].get('publicationTitle') or it['fields'].get('bookTitle')
         if container:
             cont_el = ET.SubElement(item_el, '{%s}publicationTitle' % NS['z'])
             cont_el.text = container
-        # extra (CNE lines)
         if it.get('extra_combined'):
             extra_el = ET.SubElement(item_el, '{%s}extra' % NS['z'])
             extra_el.text = it.get('extra_combined')
-
-        # notes: fetch from notes table if present
         if notes_table:
             note_text = get_note_text(conn, notes_table, it['itemID'])
             if note_text:
                 note_el = ET.SubElement(item_el, '{%s}note' % NS['z'])
                 note_el.text = note_text
-
-        # attachments: write z:attachment with rdf:resource pointing to file:// absolute URIs where possible
         if it['attachments']:
             for a in it['attachments']:
                 uri = a.get('file_uri')
                 if uri:
                     att_el = ET.SubElement(item_el, '{%s}attachment' % NS['z'], {'{%s}resource' % NS['rdf']: uri})
                 else:
-                    # unresolved snapshot or missing: put a small note element instead
                     if a.get('kind') and a.get('kind').startswith('snapshot'):
                         note_el = ET.SubElement(item_el, '{%s}note' % NS['z'])
                         note_el.text = f"Snapshot missing for parent {it['itemID']} attach {a.get('attachItemID')}"
@@ -530,7 +648,6 @@ def main():
                         att_el = ET.SubElement(item_el, '{%s}attachment' % NS['z'])
                         att_el.text = str(a.get('path') or '')
 
-    # write RDF
     with open(args.out, 'w', encoding='utf-8') as rf:
         xmlstr = prettify_xml(rdf)
         rf.write(xmlstr)
