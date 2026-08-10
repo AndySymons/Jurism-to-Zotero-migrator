@@ -41,6 +41,6 @@ Feel free to fork the program if you want to tune it to your environment or add 
 
 # Operating instructions
 
-For a detailed step-=by-step guide see the Wiki. 
+For a detailed step-by-step guide see the Wiki. 
 
 
