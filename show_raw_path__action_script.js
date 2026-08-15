@@ -1,4 +1,5 @@
 // Function to display the raw path of a linked attachment 
+// Release 1.0
 // Andrew Symons, 12-Aug-2026
 // Actions and tags plugin version. Shows the path in a popup 
 //

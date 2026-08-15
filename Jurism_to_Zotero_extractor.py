@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Jurism to Zotero RDF Extractor
-Release 1.3
+Release 1.2
 Andrew Symons 14-Aug-2026 
 Fixes:
   - Fixes "Storing invalid field 'title' / 'extra' for type annotation" Zotero import crash.
