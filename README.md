@@ -1,6 +1,6 @@
 # Jurism-to-Zotero Migration 
 
-A python program to extract data and attachments from a Jurism 6 environment and import them into a Zotero 9 environment. 
+A python program to extract data and attachments from a Jurism 6 environment and import them into a Zotero 10 environment. 
 
 If you landed here, you probably already know that you want this program. If you are not sure, or want to know more about alternatives I tried first, why I needed this program, and why the migration is done this way (after several failed alternatives), then check out the Wiki page "Why?"
 
@@ -20,7 +20,7 @@ But it does more that that:
 ## Prerequisites 
 
 1.	Requires Python 3 to run the extractor. It does not work on earlier versions. 
-1.	Zotero 9: it is not tested on earlier versions but might work. 
+1.	Zotero 10: it is not tested on earlier versions but might work. 
 1.	Optionally uses the Zotero CNE plugin for translations of Titles and Containers. 
     
 ## Known limitations 
