@@ -1,0 +1,5207 @@
+{
+  "Header": {
+    "Title": "Master Mapping Table",
+    "Date": "2026-09-22",
+    "Version": "1.0.0-alpha.1",
+    "Author": "Andrew Symons",
+    "Commentary": "First draft"
+  },
+  "Item Maps": {
+    "annotation": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "annotation"
+      }
+    },
+    "artwork": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "artwork"
+      },
+      "Creator Field Mappings": {
+        "artist": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "artist"
+        },
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        }
+      },
+      "Regular Field Mappings": {
+        "title": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "title"
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "artworkMedium": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "artworkMedium"
+        },
+        "artworkSize": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "artworkSize"
+        },
+        "websiteTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_EXTRA_ZOT",
+          "Parameter": "websiteTitle",
+          "Comment": "Field websiteTitle not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "date": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "date"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "archive": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archive"
+        },
+        "archiveLocation": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archiveLocation"
+        },
+        "libraryCatalog": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "libraryCatalog"
+        },
+        "callNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "callNumber"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    },
+    "attachment": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "attachment"
+      },
+      "Regular Field Mappings": {
+        "title": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "title"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        }
+      }
+    },
+    "audioRecording": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "audioRecording"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "performer": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "performer"
+        },
+        "composer": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "composer"
+        },
+        "wordsBy": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "wordsBy"
+        }
+      },
+      "Regular Field Mappings": {
+        "title": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "title"
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "album": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_JZM",
+          "Parameter": "album",
+          "Comment": "Field album not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "audioRecordingFormat": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "audioRecordingFormat"
+        },
+        "seriesTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "seriesTitle"
+        },
+        "volume": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "volume"
+        },
+        "numberOfVolumes": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "numberOfVolumes"
+        },
+        "place": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "place"
+        },
+        "label": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "label"
+        },
+        "release": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_JZM",
+          "Parameter": "release",
+          "Comment": "Field release not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "date": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "date"
+        },
+        "opus": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_JZM",
+          "Parameter": "opus",
+          "Comment": "Field opus not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "originalDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_CSL",
+          "Parameter": "original-date",
+          "Comment": "Field originalDate not supported in Zotero for this Item Type; original-date is the best semantic match"
+        },
+        "runningTime": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "runningTime"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "ISBN": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "ISBN"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "archive": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archive"
+        },
+        "archiveLocation": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archiveLocation"
+        },
+        "libraryCatalog": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "libraryCatalog"
+        },
+        "callNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "callNumber"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    },
+    "bill": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "bill"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "sponsor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "sponsor"
+        },
+        "cosponsor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "cosponsor"
+        },
+        "translator": {
+          "Operator name": "CREATOR_EXTRA_CSL",
+          "Parameter": "translator",
+          "Comment": "Translator is not available in Zotero for Item Type Bill; it is therefore written to a CSL tag for the best semantic match"
+        }
+      },
+      "Regular Field Mappings": {
+        "title": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "title"
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "jurisdiction": {
+          "Can have variants": false,
+          "Operator name": "FIELD_JURISDICTION"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "legislativeBody": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "legislativeBody"
+        },
+        "resolutionLabel": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_JZM",
+          "Parameter": "jzm-resolution-label",
+          "Comment": "Field resolutionLabel not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "assemblyNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_JZM",
+          "Parameter": "jzm-assembly-number",
+          "Comment": "Field assemblyNumber not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "sessionType": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_JZM",
+          "Parameter": "jzm-session-type",
+          "Comment": "Field sessionType not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "session": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "session"
+        },
+        "billNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "billNumber"
+        },
+        "date": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "date"
+        },
+        "section": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "section"
+        },
+        "archiveLocation": {
+          "Can have variants": true,
+          "Operator name": "FIELD_EXTRA_CSL",
+          "Parameter": "archive-location",
+          "Comment": "Field archiveLocation not supported in Zotero for this Item Type."
+        },
+        "code": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "code"
+        },
+        "codeVolume": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "codeVolume"
+        },
+        "codePages": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "codePages"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "history": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "history"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        },
+        "reporter": {
+          "Can have variants": true,
+          "Operator name": "FIELD_EXTRA_ZOT",
+          "Parameter": "reporter",
+          "Comment": "Field reporter not supported in Zotero for this Item Type."
+        }
+      }
+    },
+    "blogPost": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "blogPost"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "author": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "author"
+        },
+        "commenter": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "commenter"
+        }
+      },
+      "Regular Field Mappings": {
+        "title": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "title"
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "blogTitle": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "blogTitle"
+        },
+        "websiteType": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "websiteType"
+        },
+        "date": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "date"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    },
+    "book": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "book"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "translator": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "translator"
+        },
+        "author": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "author"
+        },
+        "editor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "editor"
+        },
+        "seriesEditor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "seriesEditor"
+        },
+        "recipient": {
+          "Operator name": "CREATOR_EXTRA_CSL",
+          "Parameter": "recipient",
+          "Comment": "Recipient is not available in Zotero for Item Type Book; it is therefore written to a CSL tag for the best semantic match"
+        }
+      },
+      "Regular Field Mappings": {
+        "title": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "title"
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "series": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "series"
+        },
+        "seriesNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "seriesNumber"
+        },
+        "volume": {
+          "Can have variants": false,
+          "Operator name": "FIELD_VOLUME"
+        },
+        "volumeTitle": {
+          "Can have variants": false,
+          "Operator name": "FIELD_VOLUME_TITLE"
+        },
+        "numberOfVolumes": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "numberOfVolumes"
+        },
+        "edition": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "edition"
+        },
+        "place": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "place"
+        },
+        "publisher": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "publisher"
+        },
+        "date": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "date"
+        },
+        "numPages": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "numPages"
+        },
+        "medium": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_CSL",
+          "Parameter": "medium",
+          "Comment": "Field medium not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "ISBN": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "ISBN"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "archive": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archive"
+        },
+        "archiveLocation": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archiveLocation"
+        },
+        "libraryCatalog": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "libraryCatalog"
+        },
+        "callNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "callNumber"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    },
+    "bookSection": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "bookSection"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "translator": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "translator"
+        },
+        "author": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "author"
+        },
+        "editor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "editor"
+        },
+        "seriesEditor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "seriesEditor"
+        },
+        "recipient": {
+          "Operator name": "CREATOR_EXTRA_CSL",
+          "Parameter": "recipient",
+          "Comment": "Recipient is not available in Zotero for Item Type Book Section; it is therefore written to a CSL tag for the best semantic match"
+        },
+        "bookAuthor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "bookAuthor"
+        }
+      },
+      "Regular Field Mappings": {
+        "title": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "title"
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "bookTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "bookTitle"
+        },
+        "bookAbbreviation": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_JZM",
+          "Parameter": "jzm-book-abbreviation",
+          "Comment": "Field bookAbbreviation not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "series": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "series"
+        },
+        "seriesNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "seriesNumber"
+        },
+        "volume": {
+          "Can have variants": false,
+          "Operator name": "FIELD_VOLUME"
+        },
+        "volumeTitle": {
+          "Can have variants": false,
+          "Operator name": "FIELD_VOLUME_TITLE"
+        },
+        "numberOfVolumes": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "numberOfVolumes"
+        },
+        "edition": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "edition"
+        },
+        "place": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "place"
+        },
+        "publisher": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "publisher"
+        },
+        "date": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "date"
+        },
+        "pages": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "pages"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "ISBN": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "ISBN"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "archive": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archive"
+        },
+        "archiveLocation": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archiveLocation"
+        },
+        "libraryCatalog": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "libraryCatalog"
+        },
+        "callNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "callNumber"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    },
+    "case": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "case"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "translator": {
+          "Operator name": "CREATOR_EXTRA_CSL",
+          "Parameter": "translator",
+          "Comment": "Translator is not available in Zotero for Item Type Case; it is therefore written to a CSL tag for the best semantic match"
+        },
+        "author": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "author"
+        },
+        "commenter": {
+          "Operator name": "CREATOR_EXTRA_CSL",
+          "Parameter": "commentator",
+          "Comment": "Commenter is not available in Zotero for Item Type Case; it is therefore written to a CSL tag for the best semantic match"
+        },
+        "counsel": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "counsel"
+        }
+      },
+      "Regular Field Mappings": {
+        "caseName": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "caseName"
+        },
+        "adminFlag": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_JZM",
+          "Parameter": "jzm-admin-flag",
+          "Comment": "Field adminFlag not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "jurisdiction": {
+          "Can have variants": false,
+          "Operator name": "FIELD_JURISDICTION"
+        },
+        "court": {
+          "Can have variants": true,
+          "Operator name": "FIELD_COURT"
+        },
+        "division": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_CSL",
+          "Parameter": "division",
+          "Comment": "Field division not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "docketNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "docketNumber"
+        },
+        "documentName": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_JZM",
+          "Parameter": "jzm-document-name",
+          "Comment": "Field documentName not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "documentNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_ZOT",
+          "Parameter": "documentNumber",
+          "Comment": "Field documentNumber not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "yearAsVolume": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_JZM",
+          "Parameter": "jzm-year-as-volume",
+          "Comment": "Field yearAsVolume not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "reporterVolume": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "reporterVolume"
+        },
+        "reporter": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "reporter"
+        },
+        "firstPage": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "firstPage"
+        },
+        "DOI": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "DOI"
+        },
+        "archive": {
+          "Can have variants": true,
+          "Operator name": "FIELD_EXTRA_ZOT",
+          "Parameter": "archive",
+          "Comment": "Field archive not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "archiveLocation": {
+          "Can have variants": true,
+          "Operator name": "FIELD_EXTRA_CSL",
+          "Parameter": "archive-location",
+          "Comment": "Field archiveLocation not supported in Zotero for this Item Type"
+        },
+        "dateDecided": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "dateDecided"
+        },
+        "reign": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_JZM",
+          "Parameter": "jzm-case-type",
+          "Comment": "Field reign not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "history": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "history"
+        },
+        "publisher": {
+          "Can have variants": true,
+          "Operator name": "FIELD_EXTRA_ZOT",
+          "Parameter": "publisher",
+          "Comment": "Field publisher not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "publicationDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_CSL",
+          "Parameter": "issued",
+          "Comment": "Field publicationDate not supported in Zotero for this Item Type; issued is the best semantic match"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "issue": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_ZOT",
+          "Parameter": "issue",
+          "Comment": "Field issue not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "filingDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_ZOT",
+          "Parameter": "filingDate",
+          "Comment": "Field filingDate not supported in Zotero for this Item Type."
+        },
+        "place": {
+          "Can have variants": true,
+          "Operator name": "FIELD_EXTRA_ZOT",
+          "Parameter": "place",
+          "Comment": "Field place not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "supplementName": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_JZM",
+          "Parameter": "jzm-supplement-name",
+          "Comment": "Field supplementName not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "callNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_ZOT",
+          "Parameter": "callNumber",
+          "Comment": "Field callNumber not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    },
+    "classic": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ALTERNATE",
+        "Parameter": "book",
+        "Comment": "Classic not supported in Zotero, book is the best alternative"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "translator": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "translator"
+        },
+        "author": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "author"
+        }
+      },
+      "Regular Field Mappings": {
+        "title": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "title"
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "volume": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "volume"
+        },
+        "date": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "date"
+        },
+        "numPages": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "numPages"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "archive": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archive"
+        },
+        "archiveLocation": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archiveLocation"
+        },
+        "libraryCatalog": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "libraryCatalog"
+        },
+        "callNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "callNumber"
+        },
+        "manuscriptType": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_ZOT",
+          "Parameter": "manuscriptType",
+          "Comment": "Field manuscriptType not supported in Zotero for this Item Type."
+        },
+        "place": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "place"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    },
+    "computerProgram": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "computerProgram"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "programmer": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "programmer"
+        }
+      },
+      "Regular Field Mappings": {
+        "title": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "title"
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "seriesTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "seriesTitle"
+        },
+        "versionNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "versionNumber"
+        },
+        "date": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "date"
+        },
+        "system": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "system"
+        },
+        "place": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "place"
+        },
+        "company": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "company"
+        },
+        "programmingLanguage": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "programmingLanguage"
+        },
+        "ISBN": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "ISBN"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "archive": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archive"
+        },
+        "archiveLocation": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archiveLocation"
+        },
+        "libraryCatalog": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "libraryCatalog"
+        },
+        "callNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "callNumber"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    },
+    "conferencePaper": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "conferencePaper"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "translator": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "translator"
+        },
+        "author": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "author"
+        },
+        "editor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "editor"
+        },
+        "seriesEditor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "seriesEditor"
+        }
+      },
+      "Regular Field Mappings": {
+        "title": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "title"
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "conferenceDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_JZM",
+          "Parameter": "jzm-conference-date",
+          "Comment": "Field conferenceDate not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "proceedingsTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "proceedingsTitle"
+        },
+        "conferenceName": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "conferenceName"
+        },
+        "place": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "place"
+        },
+        "institution": {
+          "Can have variants": true,
+          "Operator name": "FIELD_EXTRA_CSL",
+          "Parameter": "publisher",
+          "Comment": "Field institution not supported in Zotero for this Item Type; publisher is the best semantic match"
+        },
+        "publisher": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "publisher"
+        },
+        "date": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "date"
+        },
+        "volume": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "volume"
+        },
+        "issue": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "issue"
+        },
+        "pages": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "pages"
+        },
+        "series": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "series"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "DOI": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "DOI"
+        },
+        "ISBN": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "ISBN"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "archive": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archive"
+        },
+        "archiveLocation": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archiveLocation"
+        },
+        "libraryCatalog": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "libraryCatalog"
+        },
+        "callNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "callNumber"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    },
+    "dictionaryEntry": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "dictionaryEntry"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "translator": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "translator"
+        },
+        "author": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "author"
+        },
+        "editor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "editor"
+        },
+        "seriesEditor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "seriesEditor"
+        }
+      },
+      "Regular Field Mappings": {
+        "title": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "title"
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "dictionaryTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "dictionaryTitle"
+        },
+        "series": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "series"
+        },
+        "seriesNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "seriesNumber"
+        },
+        "volume": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "volume"
+        },
+        "numberOfVolumes": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "numberOfVolumes"
+        },
+        "edition": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "edition"
+        },
+        "place": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "place"
+        },
+        "publisher": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "publisher"
+        },
+        "date": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "date"
+        },
+        "pages": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "pages"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "ISBN": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "ISBN"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "archive": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archive"
+        },
+        "archiveLocation": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archiveLocation"
+        },
+        "libraryCatalog": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "libraryCatalog"
+        },
+        "callNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "callNumber"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    },
+    "document": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "document"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "translator": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "translator"
+        },
+        "author": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "author"
+        },
+        "editor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "editor"
+        },
+        "reviewedAuthor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "reviewedAuthor"
+        }
+      },
+      "Regular Field Mappings": {
+        "title": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "title"
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "publisher": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "publisher"
+        },
+        "versionNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_CSL",
+          "Parameter": "version",
+          "Comment": "Field versionNumber not supported in Zotero for this Item Type; version is the best semantic match"
+        },
+        "date": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "date"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "archive": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archive"
+        },
+        "archiveLocation": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archiveLocation"
+        },
+        "libraryCatalog": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "libraryCatalog"
+        },
+        "callNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "callNumber"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    },
+    "email": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "email"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "author": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "author"
+        },
+        "recipient": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "recipient"
+        }
+      },
+      "Regular Field Mappings": {
+        "subject": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "subject"
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "date": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "date"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    },
+    "encyclopediaArticle": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "encyclopediaArticle"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "translator": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "translator"
+        },
+        "author": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "author"
+        },
+        "editor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "editor"
+        },
+        "seriesEditor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "seriesEditor"
+        }
+      },
+      "Regular Field Mappings": {
+        "title": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "title"
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "encyclopediaTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "encyclopediaTitle"
+        },
+        "series": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "series"
+        },
+        "seriesNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "seriesNumber"
+        },
+        "volume": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "volume"
+        },
+        "numberOfVolumes": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "numberOfVolumes"
+        },
+        "edition": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "edition"
+        },
+        "place": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "place"
+        },
+        "publisher": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "publisher"
+        },
+        "date": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "date"
+        },
+        "pages": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "pages"
+        },
+        "ISBN": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "ISBN"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "archive": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archive"
+        },
+        "archiveLocation": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archiveLocation"
+        },
+        "libraryCatalog": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "libraryCatalog"
+        },
+        "callNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "callNumber"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    },
+    "film": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "film"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "director": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "director"
+        },
+        "scriptwriter": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "scriptwriter"
+        },
+        "producer": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "producer"
+        }
+      },
+      "Regular Field Mappings": {
+        "title": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "title"
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "distributor": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "distributor"
+        },
+        "date": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "date"
+        },
+        "genre": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "genre"
+        },
+        "videoRecordingFormat": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "videoRecordingFormat"
+        },
+        "runningTime": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "runningTime"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "archive": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archive"
+        },
+        "archiveLocation": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archiveLocation"
+        },
+        "libraryCatalog": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "libraryCatalog"
+        },
+        "callNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "callNumber"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    },
+    "forumPost": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "forumPost"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "author": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "author"
+        }
+      },
+      "Regular Field Mappings": {
+        "title": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "title"
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "forumTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "forumTitle"
+        },
+        "postType": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "postType"
+        },
+        "date": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "date"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    },
+    "gazette": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ALTERNATE",
+        "Parameter": "statute",
+        "Comment": "Gazette not supported in Zotero, statute is the best alternative"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "translator": {
+          "Operator name": "CREATOR_EXTRA_CSL",
+          "Parameter": "translator",
+          "Comment": "Translator is not available in Zotero for Item Type Statute; it is therefore written to a CSL tag for the best semantic match"
+        },
+        "author": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "author"
+        }
+      },
+      "Regular Field Mappings": {
+        "nameOfAct": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "nameOfAct"
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "jurisdiction": {
+          "Can have variants": false,
+          "Operator name": "FIELD_JURISDICTION"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "publicLawNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "publicLawNumber"
+        },
+        "code": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "code"
+        },
+        "codeNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "codeNumber"
+        },
+        "pages": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "pages"
+        },
+        "dateEnacted": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "dateEnacted"
+        },
+        "section": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "section"
+        },
+        "reign": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_JZM",
+          "Parameter": "jzm-case-type",
+          "Comment": "Field reign not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "regnalYear": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_JZM",
+          "Parameter": "jzm-regnal-year",
+          "Comment": "Field regnalYear not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "publisher": {
+          "Can have variants": true,
+          "Operator name": "FIELD_EXTRA_ZOT",
+          "Parameter": "publisher",
+          "Comment": "Field publisher not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "publicationDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_CSL",
+          "Parameter": "issued",
+          "Comment": "Field publicationDate not supported in Zotero for this Item Type; issued is the best semantic match"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "session": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "session"
+        },
+        "history": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "history"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    },
+    "hearing": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "hearing"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "translator": {
+          "Operator name": "CREATOR_EXTRA_CSL",
+          "Parameter": "translator",
+          "Comment": "Translator is not available in Zotero for Item Type Hearing; it is therefore written to a CSL tag for the best semantic match"
+        },
+        "testimonyBy": {
+          "Operator name": "CREATOR_EXTRA_JZM",
+          "Parameter": "jzm-testimony-by",
+          "Comment": "Testimony By is not available in Zotero for Item Type Hearing; it is therefore written to a JZM tag to preserve the data"
+        }
+      },
+      "Regular Field Mappings": {
+        "title": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "title"
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "jurisdiction": {
+          "Can have variants": false,
+          "Operator name": "FIELD_JURISDICTION"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "committee": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "committee"
+        },
+        "meetingNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_JZM",
+          "Parameter": "jzm-meeting-number",
+          "Comment": "Field meetingNumber not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "legislativeBody": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "legislativeBody"
+        },
+        "resolutionLabel": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_JZM",
+          "Parameter": "jzm-resolution-label",
+          "Comment": "Field resolutionLabel not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "assemblyNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_JZM",
+          "Parameter": "jzm-assembly-number",
+          "Comment": "Field assemblyNumber not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "sessionType": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_JZM",
+          "Parameter": "jzm-session-type",
+          "Comment": "Field sessionType not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "session": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "session"
+        },
+        "documentNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "documentNumber"
+        },
+        "date": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "date"
+        },
+        "archiveLocation": {
+          "Can have variants": true,
+          "Operator name": "FIELD_EXTRA_CSL",
+          "Parameter": "archive-location",
+          "Comment": "Field archiveLocation not supported in Zotero for this Item Type"
+        },
+        "reporter": {
+          "Can have variants": true,
+          "Operator name": "FIELD_EXTRA_ZOT",
+          "Parameter": "reporter",
+          "Comment": "Field reporter not supported in Zotero for this Item Type."
+        },
+        "publisher": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "publisher"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "numberOfVolumes": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "numberOfVolumes"
+        },
+        "history": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "history"
+        },
+        "place": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "place"
+        },
+        "pages": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "pages"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        },
+        "meetingName": {
+          "Can have variants": true,
+          "Operator name": "FIELD_EXTRA_ZOT",
+          "Parameter": "meetingName",
+          "Comment": "Field meetingName not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "volume": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_ZOT",
+          "Parameter": "volume",
+          "Comment": "Field volume not supported in Zotero for this Item Type."
+        }
+      }
+    },
+    "instantMessage": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "instantMessage"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "author": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "author"
+        },
+        "recipient": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "recipient"
+        }
+      },
+      "Regular Field Mappings": {
+        "title": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "title"
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "date": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "date"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    },
+    "interview": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "interview"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "translator": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "translator"
+        },
+        "interviewee": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "interviewee"
+        },
+        "interviewer": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "interviewer"
+        }
+      },
+      "Regular Field Mappings": {
+        "title": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "title"
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "place": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "place"
+        },
+        "date": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "date"
+        },
+        "interviewMedium": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "interviewMedium"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "archive": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archive"
+        },
+        "archiveLocation": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archiveLocation"
+        },
+        "libraryCatalog": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "libraryCatalog"
+        },
+        "callNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "callNumber"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    },
+    "journalArticle": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "journalArticle"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "translator": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "translator"
+        },
+        "author": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "author"
+        },
+        "editor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "editor"
+        },
+        "reviewedAuthor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "reviewedAuthor"
+        }
+      },
+      "Regular Field Mappings": {
+        "title": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "title"
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "publicationTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "publicationTitle"
+        },
+        "volume": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "volume"
+        },
+        "issue": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "issue"
+        },
+        "pages": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "pages"
+        },
+        "date": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "date"
+        },
+        "status": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_CSL",
+          "Parameter": "status",
+          "Comment": "Field status not supported in Zotero for this Item Type; status is the best semantic match"
+        },
+        "series": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "series"
+        },
+        "seriesTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "seriesTitle"
+        },
+        "seriesText": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "seriesText"
+        },
+        "journalAbbreviation": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "journalAbbreviation"
+        },
+        "place": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "place"
+        },
+        "publisher": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "publisher"
+        },
+        "jurisdiction": {
+          "Can have variants": false,
+          "Operator name": "FIELD_JURISDICTION"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "DOI": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "DOI"
+        },
+        "ISSN": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "ISSN"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "archive": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archive"
+        },
+        "archiveLocation": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archiveLocation"
+        },
+        "libraryCatalog": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "libraryCatalog"
+        },
+        "callNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "callNumber"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    },
+    "legalCommentary": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ALTERNATE",
+        "Parameter": "book",
+        "Comment": "Legal Commentary not supported in Zotero, book is the best alternative"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "translator": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "translator"
+        },
+        "author": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "author"
+        },
+        "editor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "editor"
+        },
+        "seriesEditor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "seriesEditor"
+        },
+        "recipient": {
+          "Operator name": "CREATOR_EXTRA_CSL",
+          "Parameter": "recipient",
+          "Comment": "Recipient is not available in Zotero for Item Type Book; it is therefore written to a CSL tag for the best semantic match"
+        },
+        "bookAuthor": {
+          "Operator name": "CREATOR_EXTRA_ZOT",
+          "Parameter": "bookAuthor",
+          "Comment": "Book Author is not available in Zotero for Item Type Book; it is therefore written to a Zotero tag for the best semantic match"
+        }
+      },
+      "Regular Field Mappings": {
+        "title": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "title"
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "bookTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_EXTRA_ZOT",
+          "Parameter": "booktitle",
+          "Comment": "Field bookTitle not supported in Zotero for this Item Type; so the Zotero tag is the best semantic match"
+        },
+        "bookAbbreviation": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_JZM",
+          "Parameter": "jzm-book-abbreviation",
+          "Comment": "Field bookAbbreviation not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "series": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "series"
+        },
+        "seriesNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "seriesNumber"
+        },
+        "volume": {
+          "Can have variants": false,
+          "Operator name": "FIELD_VOLUME"
+        },
+        "volumeTitle": {
+          "Can have variants": false,
+          "Operator name": "FIELD_VOLUME_TITLE"
+        },
+        "numberOfVolumes": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "numberOfVolumes"
+        },
+        "edition": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "edition"
+        },
+        "versionNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_CSL",
+          "Parameter": "version",
+          "Comment": "Field versionNumber not supported in Zotero for this Item Type; version is the best semantic match"
+        },
+        "place": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "place"
+        },
+        "publisher": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "publisher"
+        },
+        "date": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "date"
+        },
+        "pages": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_CSL",
+          "Parameter": "page",
+          "Comment": "Field pages not supported in Zotero for this Item Type; page is the best semantic match"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "ISBN": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "ISBN"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "archive": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archive"
+        },
+        "archiveLocation": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archiveLocation"
+        },
+        "libraryCatalog": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "libraryCatalog"
+        },
+        "callNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "callNumber"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    },
+    "letter": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "letter"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "author": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "author"
+        },
+        "recipient": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "recipient"
+        }
+      },
+      "Regular Field Mappings": {
+        "title": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "title"
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "letterType": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "letterType"
+        },
+        "date": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "date"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "archive": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archive"
+        },
+        "archiveLocation": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archiveLocation"
+        },
+        "libraryCatalog": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "libraryCatalog"
+        },
+        "callNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "callNumber"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    },
+    "magazineArticle": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "magazineArticle"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "translator": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "translator"
+        },
+        "author": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "author"
+        },
+        "reviewedAuthor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "reviewedAuthor"
+        }
+      },
+      "Regular Field Mappings": {
+        "title": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "title"
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "place": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "place"
+        },
+        "publisher": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "publisher"
+        },
+        "publicationTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "publicationTitle"
+        },
+        "volume": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "volume"
+        },
+        "issue": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "issue"
+        },
+        "date": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "date"
+        },
+        "pages": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "pages"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "ISSN": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "ISSN"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "archive": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archive"
+        },
+        "archiveLocation": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archiveLocation"
+        },
+        "libraryCatalog": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "libraryCatalog"
+        },
+        "callNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "callNumber"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    },
+    "manuscript": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "manuscript"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "translator": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "translator"
+        },
+        "author": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "author"
+        }
+      },
+      "Regular Field Mappings": {
+        "title": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "title"
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "manuscriptType": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "manuscriptType"
+        },
+        "place": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "place"
+        },
+        "date": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "date"
+        },
+        "numPages": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "numPages"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "archive": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archive"
+        },
+        "archiveLocation": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archiveLocation"
+        },
+        "libraryCatalog": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "libraryCatalog"
+        },
+        "callNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "callNumber"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    },
+    "map": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "map"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "seriesEditor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "seriesEditor"
+        },
+        "cartographer": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "cartographer"
+        }
+      },
+      "Regular Field Mappings": {
+        "title": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "title"
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "mapType": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "mapType"
+        },
+        "scale": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "scale"
+        },
+        "seriesTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "seriesTitle"
+        },
+        "edition": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "edition"
+        },
+        "place": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "place"
+        },
+        "publisher": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "publisher"
+        },
+        "date": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "date"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "ISBN": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "ISBN"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "archive": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archive"
+        },
+        "archiveLocation": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archiveLocation"
+        },
+        "libraryCatalog": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "libraryCatalog"
+        },
+        "callNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "callNumber"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    },
+    "newspaperArticle": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "newspaperArticle"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "translator": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "translator"
+        },
+        "author": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "author"
+        },
+        "reviewedAuthor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "reviewedAuthor"
+        }
+      },
+      "Regular Field Mappings": {
+        "title": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "title"
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "publicationTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "publicationTitle"
+        },
+        "date": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "date"
+        },
+        "place": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "place"
+        },
+        "edition": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "edition"
+        },
+        "section": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "section"
+        },
+        "pages": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "pages"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "jurisdiction": {
+          "Can have variants": false,
+          "Operator name": "FIELD_JURISDICTION"
+        },
+        "court": {
+          "Can have variants": true,
+          "Operator name": "FIELD_COURT"
+        },
+        "newsCaseDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_JZM",
+          "Parameter": "jzm-case-date",
+          "Comment": "Field Case Date not supported in Zotero or CSL, so wrtten as a JZM tag to preservet the data"
+        },
+        "ISSN": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "ISSN"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "archive": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archive"
+        },
+        "archiveLocation": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archiveLocation"
+        },
+        "libraryCatalog": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "libraryCatalog"
+        },
+        "callNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "callNumber"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    },
+    "note": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "note"
+      }
+    },
+    "patent": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "patent"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "recipient": {
+          "Operator name": "CREATOR_EXTRA_CSL",
+          "Parameter": "recipient",
+          "Comment": "Recipient is not available in Zotero for Item Type Patent; it is therefore written to a CSL tag for the best semantic match"
+        },
+        "inventor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "inventor"
+        },
+        "attorneyAgent": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "attorneyAgent"
+        }
+      },
+      "Regular Field Mappings": {
+        "title": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "title"
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "jurisdiction": {
+          "Can have variants": false,
+          "Operator name": "FIELD_JURISDICTION"
+        },
+        "genre": {
+          "Can have variants": true,
+          "Operator name": "FIELD_EXTRA_ZOT",
+          "Parameter": "genre",
+          "Comment": "Field genre not supported in Zotero for this Item Type, so a Zotero tag is written"
+        },
+        "issuingAuthority": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "issuingAuthority"
+        },
+        "place": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "place"
+        },
+        "patentNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "patentNumber"
+        },
+        "issueDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "issueDate"
+        },
+        "publicationNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_JZM",
+          "Parameter": "jzm-publication-number",
+          "Comment": "Field publicationNumber not supported in Zotero or CSL."
+        },
+        "publicationDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_CSL",
+          "Parameter": "issued",
+          "Comment": "Field publicationDate not supported in Zotero for this Item Type; issued is the best semantic match"
+        },
+        "applicationNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "applicationNumber"
+        },
+        "filingDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "filingDate"
+        },
+        "priorityNumbers": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "priorityNumbers"
+        },
+        "priorityDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "priorityDate"
+        },
+        "pages": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "pages"
+        },
+        "legalStatus": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "legalStatus"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "assignee": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "assignee"
+        },
+        "country": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "country"
+        },
+        "references": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "references"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    },
+    "podcast": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "podcast"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "podcaster": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "podcaster"
+        },
+        "guest": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "guest"
+        }
+      },
+      "Regular Field Mappings": {
+        "title": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "title"
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "seriesTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "seriesTitle"
+        },
+        "episodeNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "episodeNumber"
+        },
+        "date": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "date"
+        },
+        "publisher": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "publisher"
+        },
+        "audioFileType": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "audioFileType"
+        },
+        "runningTime": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "runningTime"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    },
+    "preprint": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "preprint"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "translator": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "translator"
+        },
+        "author": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "author"
+        },
+        "editor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "editor"
+        },
+        "reviewedAuthor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "reviewedAuthor"
+        }
+      },
+      "Regular Field Mappings": {
+        "title": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "title"
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "genre": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "genre"
+        },
+        "repository": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "repository"
+        },
+        "archiveID": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archiveID"
+        },
+        "place": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "place"
+        },
+        "date": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "date"
+        },
+        "series": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "series"
+        },
+        "seriesNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "seriesNumber"
+        },
+        "DOI": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "DOI"
+        },
+        "citationKey": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "citationKey"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "archive": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archive"
+        },
+        "archiveLocation": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archiveLocation"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "libraryCatalog": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "libraryCatalog"
+        },
+        "callNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "callNumber"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    },
+    "presentation": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "presentation"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "presenter": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "presenter"
+        }
+      },
+      "Regular Field Mappings": {
+        "title": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "title"
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "presentationType": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "presentationType"
+        },
+        "meetingName": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "meetingName"
+        },
+        "place": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "place"
+        },
+        "date": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "date"
+        },
+        "archiveCollection": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_CSL",
+          "Parameter": "archive-collection",
+          "Comment": "Field archiveCollection not supported in Zotero for this Item Type."
+        },
+        "archiveLocation": {
+          "Can have variants": true,
+          "Operator name": "FIELD_EXTRA_CSL",
+          "Parameter": "archive-location",
+          "Comment": "Field archiveLocation not supported in Zotero for this Item Type."
+        },
+        "archive": {
+          "Can have variants": true,
+          "Operator name": "FIELD_EXTRA_ZOT",
+          "Parameter": "archive",
+          "Comment": "Field archive not supported in Zotero for this Item Type."
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    },
+    "radioBroadcast": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "radioBroadcast"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "director": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "director"
+        },
+        "scriptwriter": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "scriptwriter"
+        },
+        "producer": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "producer"
+        },
+        "guest": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "guest"
+        },
+        "castMember": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "castMember"
+        }
+      },
+      "Regular Field Mappings": {
+        "title": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "title"
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "programTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "programTitle"
+        },
+        "episodeNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "episodeNumber"
+        },
+        "audioRecordingFormat": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "audioRecordingFormat"
+        },
+        "place": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "place"
+        },
+        "network": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "network"
+        },
+        "date": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "date"
+        },
+        "runningTime": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "runningTime"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "archive": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archive"
+        },
+        "archiveLocation": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archiveLocation"
+        },
+        "libraryCatalog": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "libraryCatalog"
+        },
+        "callNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "callNumber"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    },
+    "regulation": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ALTERNATE",
+        "Parameter": "statute",
+        "Comment": "Regulation not supported in Zotero, statute is the best alternative"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "translator": {
+          "Operator name": "CREATOR_EXTRA_CSL",
+          "Parameter": "translator",
+          "Comment": "Translator is not available in Zotero for Item Type Statute; it is therefore written to a CSL tag for the best semantic match"
+        },
+        "author": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "author"
+        }
+      },
+      "Regular Field Mappings": {
+        "nameOfAct": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "nameOfAct"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "gazetteFlag": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_JZM",
+          "Parameter": "gazette-flag",
+          "Comment": "Field gazetteFlag not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "jurisdiction": {
+          "Can have variants": false,
+          "Operator name": "FIELD_JURISDICTION"
+        },
+        "regulatoryBody": {
+          "Can have variants": true,
+          "Operator name": "FIELD_EXTRA_JZM",
+          "Parameter": "jzm-regulatory-body",
+          "Comment": "Field regulatoryBody not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "regulationType": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_JZM",
+          "Parameter": "jzm-regulation-type",
+          "Comment": "Field regulationType not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "publicLawNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "publicLawNumber"
+        },
+        "code": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "code"
+        },
+        "codeNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "codeNumber"
+        },
+        "pages": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "pages"
+        },
+        "dateEnacted": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "dateEnacted"
+        },
+        "section": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "section"
+        },
+        "publisher": {
+          "Can have variants": true,
+          "Operator name": "FIELD_EXTRA_ZOT",
+          "Parameter": "publisher",
+          "Comment": "Field publisher not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "publicationDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_CSL",
+          "Parameter": "issued",
+          "Comment": "Field publicationDate not supported in Zotero for this Item Type; issued is the best semantic match"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "session": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "session"
+        },
+        "history": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "history"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    },
+    "report": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "report"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "translator": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "translator"
+        },
+        "author": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "author"
+        },
+        "seriesEditor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "seriesEditor"
+        }
+      },
+      "Regular Field Mappings": {
+        "title": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "title"
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "status": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_CSL",
+          "Parameter": "status",
+          "Comment": "Field status not supported in Zotero for this Item Type; status is the best semantic match"
+        },
+        "reportNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "reportNumber"
+        },
+        "reportType": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "reportType"
+        },
+        "bookTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_EXTRA_ZOT",
+          "Parameter": "bookTitle",
+          "Comment": "Field bookTitle not supported in Zotero for this Item Type; bookTitle is the best semantic match"
+        },
+        "seriesTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "seriesTitle"
+        },
+        "medium": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_CSL",
+          "Parameter": "medium",
+          "Comment": "Field medium not supported in Zotero for this Item Type."
+        },
+        "place": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "place"
+        },
+        "institution": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "institution"
+        },
+        "committee": {
+          "Can have variants": true,
+          "Operator name": "FIELD_EXTRA_ZOT",
+          "Parameter": "committee",
+          "Comment": "Field committee not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "assemblyNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_JZM",
+          "Parameter": "jzm-assembly-number",
+          "Comment": "Field assemblyNumber not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "date": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "date"
+        },
+        "pages": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "pages"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "jurisdiction": {
+          "Can have variants": false,
+          "Operator name": "FIELD_JURISDICTION"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "publisher": {
+          "Can have variants": true,
+          "Operator name": "FIELD_EXTRA_ZOT",
+          "Parameter": "publisher",
+          "Comment": "Field publisher not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "archive": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archive"
+        },
+        "archiveLocation": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archiveLocation"
+        },
+        "libraryCatalog": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "libraryCatalog"
+        },
+        "callNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "callNumber"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    },
+    "standard": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "standard"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "translator": {
+          "Operator name": "CREATOR_EXTRA_CSL",
+          "Parameter": "translator",
+          "Comment": "Translator is not available in Zotero for Item Type Standard; it is therefore written to a CSL tag for the best semantic match"
+        },
+        "author": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "author"
+        },
+        "editor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "editor"
+        },
+        "reviewedAuthor": {
+          "Operator name": "CREATOR_EXTRA_JZM",
+          "Parameter": "reviewed-author",
+          "Comment": "Reviewed Author is not available in Zotero or CSL, so is written to a JZM tag to preserve the data"
+        }
+      },
+      "Regular Field Mappings": {
+        "title": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "title"
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "number": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "number"
+        },
+        "publisher": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "publisher"
+        },
+        "versionNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "versionNumber"
+        },
+        "date": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "date"
+        },
+        "jurisdiction": {
+          "Can have variants": false,
+          "Operator name": "FIELD_JURISDICTION"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "archive": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archive"
+        },
+        "archiveLocation": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archiveLocation"
+        },
+        "libraryCatalog": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "libraryCatalog"
+        },
+        "callNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "callNumber"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    },
+    "statute": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "statute"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "translator": {
+          "Operator name": "CREATOR_EXTRA_CSL",
+          "Parameter": "translator",
+          "Comment": "Translator is not available in Zotero for Item Type Statute; it is therefore written to a CSL tag for the best semantic match"
+        },
+        "author": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "author"
+        }
+      },
+      "Regular Field Mappings": {
+        "nameOfAct": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "nameOfAct"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "gazetteFlag": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_JZM",
+          "Parameter": "gazette-flag",
+          "Comment": "Field gazetteFlag not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "jurisdiction": {
+          "Can have variants": false,
+          "Operator name": "FIELD_JURISDICTION"
+        },
+        "code": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "code"
+        },
+        "codeNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "codeNumber"
+        },
+        "pages": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "pages"
+        },
+        "dateEnacted": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "dateEnacted"
+        },
+        "dateAmended": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_JZM",
+          "Parameter": "jzm-date-amended",
+          "Comment": "Field dateAmended not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "originalDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_CSL",
+          "Parameter": "original-date",
+          "Comment": "Field originalDate not supported in Zotero for this Item Type; original-date is the best semantic match"
+        },
+        "section": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "section"
+        },
+        "publicLawNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "publicLawNumber"
+        },
+        "reign": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_JZM",
+          "Parameter": "jzm-case-type",
+          "Comment": "Field reign not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "regnalYear": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_JZM",
+          "Parameter": "jzm-regnal-year",
+          "Comment": "Field regnalYear not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "publisher": {
+          "Can have variants": true,
+          "Operator name": "FIELD_EXTRA_ZOT",
+          "Parameter": "publisher",
+          "Comment": "Field publisher not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "publicationDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_CSL",
+          "Parameter": "issued",
+          "Comment": "Field publicationDate not supported in Zotero for this Item Type; issued is the best semantic match"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "session": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "session"
+        },
+        "history": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "history"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    },
+    "thesis": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "thesis"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "author": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "author"
+        }
+      },
+      "Regular Field Mappings": {
+        "title": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "title"
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "thesisType": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "thesisType"
+        },
+        "university": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "university"
+        },
+        "place": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "place"
+        },
+        "date": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "date"
+        },
+        "numPages": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "numPages"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "archive": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archive"
+        },
+        "archiveLocation": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archiveLocation"
+        },
+        "libraryCatalog": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "libraryCatalog"
+        },
+        "callNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "callNumber"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    },
+    "treaty": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ALTERNATE",
+        "Parameter": "statute",
+        "Comment": "Treaty not supported in Zotero, statute is the best alternative"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "translator": {
+          "Operator name": "CREATOR_EXTRA_CSL",
+          "Parameter": "translator",
+          "Comment": "Translator is not available in Zotero for Item Type Statute; it is therefore written to a CSL tag for the best semantic match"
+        },
+        "author": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "author"
+        },
+        "editor": {
+          "Operator name": "CREATOR_EXTRA_ZOT",
+          "Parameter": "editor",
+          "Comment": "Editor is not available in Zotero so is written to a Zotero tag"
+        },
+        "reviewedAuthor": {
+          "Operator name": "CREATOR_EXTRA_JZM",
+          "Parameter": "jzm-reviewed-author",
+          "Comment": "Reviewed Author is not available in Zotero or CSL, so is written to a JZM tag to preserve the data"
+        }
+      },
+      "Regular Field Mappings": {
+        "title": {
+          "Can have variants": true,
+          "Operator name": "FIELD_EXTRA_ZOT",
+          "Parameter": "title",
+          "Comment": "no Field title supported in Zotero for this item type."
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "reporter": {
+          "Can have variants": true,
+          "Operator name": "FIELD_EXTRA_ZOT",
+          "Parameter": "reporter",
+          "Comment": "Field reporter not supported in Zotero for this Item Type."
+        },
+        "treatyNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_JZM",
+          "Parameter": "jzm-treaty-number",
+          "Comment": "Field treatyNumber not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "volume": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_ZOT",
+          "Parameter": "volume",
+          "Comment": "Field volume not supported in Zotero for this Item Type."
+        },
+        "pages": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "pages"
+        },
+        "parentTreaty": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_CSL",
+          "Parameter": "container-title",
+          "Comment": "Field parentTreaty not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "supplementName": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_JZM",
+          "Parameter": "jzm-supplement-name",
+          "Comment": "Field supplementName not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "openingDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_JZM",
+          "Parameter": "opening-date",
+          "Comment": "Field openingDate not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "adoptionDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_JZM",
+          "Parameter": "adoption-date",
+          "Comment": "Field adoptionDate not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "signingDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_JZM",
+          "Parameter": "signing-date",
+          "Comment": "Field signingDate not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "date": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_ZOT",
+          "Parameter": "date",
+          "Comment": "Field date not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "section": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "section"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "archive": {
+          "Can have variants": true,
+          "Operator name": "FIELD_EXTRA_ZOT",
+          "Parameter": "archive",
+          "Comment": "Field archive not supported in Zotero for this Item Type."
+        },
+        "archiveLocation": {
+          "Can have variants": true,
+          "Operator name": "FIELD_EXTRA_CSL",
+          "Parameter": "archive-location",
+          "Comment": "Field archiveLocation not supported in Zotero for this Item Type."
+        },
+        "libraryCatalog": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_JZM",
+          "Parameter": "jzm-library-catalog",
+          "Comment": "Field libraryCatalog not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "callNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_ZOT",
+          "Parameter": "callNumber",
+          "Comment": "Field callNumber not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "publisher": {
+          "Can have variants": true,
+          "Operator name": "FIELD_EXTRA_ZOT",
+          "Parameter": "publisher",
+          "Comment": "Field publisher not supported in Zotero for this Item Type and there is no CSL alternative."
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        },
+        "versionNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_EXTRA_CSL",
+          "Parameter": "version",
+          "Comment": "Field versionNumber not supported in Zotero for this Item Type; version is the best semantic match"
+        }
+      }
+    },
+    "tvBroadcast": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "tvBroadcast"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "director": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "director"
+        },
+        "scriptwriter": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "scriptwriter"
+        },
+        "producer": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "producer"
+        },
+        "guest": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "guest"
+        },
+        "castMember": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "castMember"
+        }
+      },
+      "Regular Field Mappings": {
+        "title": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "title"
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "programTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "programTitle"
+        },
+        "episodeNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "episodeNumber"
+        },
+        "videoRecordingFormat": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "videoRecordingFormat"
+        },
+        "place": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "place"
+        },
+        "network": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "network"
+        },
+        "date": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "date"
+        },
+        "runningTime": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "runningTime"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "archive": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archive"
+        },
+        "archiveLocation": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archiveLocation"
+        },
+        "libraryCatalog": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "libraryCatalog"
+        },
+        "callNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "callNumber"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    },
+    "videoRecording": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "videoRecording"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "director": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "director"
+        },
+        "scriptwriter": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "scriptwriter"
+        },
+        "producer": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "producer"
+        },
+        "castMember": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "castMember"
+        }
+      },
+      "Regular Field Mappings": {
+        "title": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "title"
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "videoRecordingFormat": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "videoRecordingFormat"
+        },
+        "seriesTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "seriesTitle"
+        },
+        "volume": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "volume"
+        },
+        "numberOfVolumes": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "numberOfVolumes"
+        },
+        "place": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "place"
+        },
+        "studio": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "studio"
+        },
+        "date": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "date"
+        },
+        "runningTime": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "runningTime"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "ISBN": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "ISBN"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "websiteTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_EXTRA_ZOT",
+          "Parameter": "websiteTitle",
+          "Comment": "Field websiteTitle not supported in Zotero for this Item Type."
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "archive": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archive"
+        },
+        "archiveLocation": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "archiveLocation"
+        },
+        "libraryCatalog": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "libraryCatalog"
+        },
+        "callNumber": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "callNumber"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    },
+    "webpage": {
+      "Item Type Mapping": {
+        "Operator name": "ITEM_ONE_TO_ONE",
+        "Parameter": "webpage"
+      },
+      "Creator Field Mappings": {
+        "contributor": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "contributor"
+        },
+        "translator": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "translator"
+        },
+        "author": {
+          "Operator name": "CREATOR_ONE_TO_ONE",
+          "Parameter": "author"
+        }
+      },
+      "Regular Field Mappings": {
+        "title": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "title"
+        },
+        "abstractNote": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "abstractNote"
+        },
+        "websiteTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "websiteTitle"
+        },
+        "websiteType": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "websiteType"
+        },
+        "date": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "date"
+        },
+        "shortTitle": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "shortTitle"
+        },
+        "url": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "url"
+        },
+        "accessDate": {
+          "Can have variants": false,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "accessDate"
+        },
+        "language": {
+          "Can have variants": false,
+          "Operator name": "FIELD_LANGUAGE"
+        },
+        "rights": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "rights"
+        },
+        "extra": {
+          "Can have variants": true,
+          "Operator name": "FIELD_ONE_TO_ONE",
+          "Parameter": "extra"
+        }
+      }
+    }
+  }
+}
